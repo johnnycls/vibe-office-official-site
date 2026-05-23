@@ -380,7 +380,7 @@
         version: 'v1.0.0',
         unsupported: '暫不支援此作業系統',
         macComingSoon: 'macOS 版即將推出',
-        androidUnsupported: '請在電腦上下載',
+        mobileUnsupported: '請在電腦上下載',
         toastStarting: '正在下載 …',
         toastError: '下載失敗，請重新嘗試'
       },
@@ -403,7 +403,7 @@
         version: 'v1.0.0',
         unsupported: 'Currently unsupported OS',
         macComingSoon: 'macOS version coming soon',
-        androidUnsupported: 'Please download on a computer',
+        mobileUnsupported: 'Please download on a computer',
         toastStarting: 'Download starting …',
         toastError: 'Download failed, please try again'
       }
@@ -421,10 +421,13 @@
     function detectOS() {
       var ua = (navigator.userAgent || '').toLowerCase();
       var pf = (navigator.platform || '').toLowerCase();
+      var isMobile = 'maxTouchPoints' in navigator && navigator.maxTouchPoints > 0;
       if (/android/.test(ua)) return 'android';
+      if (/iphone|ipad|ipod/.test(ua)) return 'ios';
       if (/win/.test(ua) || /win/.test(pf)) return 'windows';
       if (/linux/.test(ua) || /linux/.test(pf)) return 'linux';
-      if (/mac/.test(ua) || /mac/.test(pf) || /darwin/.test(pf)) return 'mac';
+      if ((/mac/.test(ua) || /mac/.test(pf) || /darwin/.test(pf)) && !isMobile) return 'mac';
+      if (/mac/.test(ua) || /mac/.test(pf) || /darwin/.test(pf)) return 'ios';
       return 'other';
     }
     var os = detectOS();
@@ -496,10 +499,10 @@
         ICONS.download
       );
       downloadArea.appendChild(link);
-    } else if (os === 'android') {
+    } else if (os === 'android' || os === 'ios') {
       var span = document.createElement('span');
       span.className = 'unsupported-os';
-      span.textContent = lang.androidUnsupported;
+      span.textContent = lang.mobileUnsupported;
       downloadArea.appendChild(span);
     } else if (os === 'mac') {
       var comingSoon = document.createElement('span');

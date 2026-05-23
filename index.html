@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VibeOffice — Your Personal AI Assistant</title>
+<meta name="description" content="VibeOffice is your offline-first AI assistant. Chat, create documents, build presentations, research data, and more — all in one native desktop app.">
+<meta name="keywords" content="AI assistant, office suite, desktop app, offline AI, document editor, presentation tool, mind map, voice generation, browser automation">
+
+<!-- Open Graph -->
+<meta property="og:title" content="VibeOffice — Your Personal AI Assistant">
+<meta property="og:description" content="Get your personal AI assistant in 1 minute. Chat, create documents, build presentations, and more — all offline-first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vibeoffice.com">
+<meta property="og:image" content="icon.svg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VibeOffice — Your Personal AI Assistant">
+<meta name="twitter:description" content="Get your personal AI assistant in 1 minute. Chat, create documents, build presentations, and more — all offline-first.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data:;">
+
+<style>
+  /* ── Reset ── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ── Variables ── */
+  :root {
+    --blue: #2563EB;
+    --blue-hover: #1d4ed8;
+    --blue-subtle: #eff6ff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --bg: #ffffff;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --card-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    --card-shadow-hover: 0 8px 24px rgba(0,0,0,0.07);
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ── Base ── */
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Page Layout ── */
+  .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2.5vh 6vw 1.8vh;
+    animation: pageEnter 0.7s var(--ease-out) both;
+  }
+  @keyframes pageEnter {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding-top: 2vh;
+  }
+  .hero-title {
+    font-size: clamp(36px, 5.2vh, 62px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+  .hero-title .accent {
+    color: var(--blue);
+  }
+  .hero-subtitle {
+    font-size: clamp(15px, 2.2vh, 21px);
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-top: 0.6em;
+    line-height: 1.4;
+  }
+
+  /* ── Features ── */
+  .features {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.6vh 0;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: clamp(8px, 1.2vh, 14px);
+    width: 100%;
+    max-width: 780px;
+    height: 100%;
+    max-height: 440px;
+  }
+
+  /* ── Feature Card ── */
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(4px, 0.8vh, 10px);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-shadow);
+    padding: clamp(8px, 1.4vh, 18px) clamp(6px, 1vw, 14px);
+    cursor: default;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s ease;
+    text-align: center;
+  }
+  .feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(37, 99, 235, 0.18);
+  }
+  .feature-icon {
+    width: clamp(26px, 3.6vh, 38px);
+    height: clamp(26px, 3.6vh, 38px);
+    transition: transform 0.35s var(--ease-out);
+    color: var(--text-secondary);
+  }
+  .feature-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .feature-card:hover .feature-icon {
+    transform: scale(1.06);
+    color: var(--blue);
+  }
+  .feature-label {
+    font-size: clamp(11px, 1.4vh, 14px);
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding-top: 0.8vh;
+  }
+  .download-area {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ── Download Button ── */
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 28px;
+    font-size: clamp(14px, 1.6vh, 16px);
+    font-weight: 600;
+    font-family: var(--font);
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+    text-decoration: none;
+    line-height: 1.4;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .btn-download:hover {
+    background: var(--blue-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+  }
+  .btn-download:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.2);
+  }
+  .btn-download:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 2px;
+  }
+
+  /* ── Version badge inside button ── */
+  .btn-version {
+    font-size: 0.75em;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 2px;
+  }
+
+  /* ── Download icon ── */
+  .btn-icon {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  }
+  .btn-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* ── Unsupported OS text ── */
+  .unsupported-os {
+    font-size: clamp(13px, 1.5vh, 15px);
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    padding: 6px 0;
+  }
+
+  /* ── Coming soon badge ── */
+  .coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: clamp(13px, 1.5vh, 15px);
+    font-weight: 500;
+    color: var(--blue);
+    letter-spacing: 0.02em;
+    padding: 8px 18px;
+    border: 1.5px dashed var(--blue);
+    border-radius: var(--radius-sm);
+    opacity: 0.8;
+  }
+
+  /* ── Copyright ── */
+  .copyright {
+    font-size: clamp(11px, 1.2vh, 13px);
+    color: var(--text-muted);
+    margin-top: 0.6vh;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Download feedback toast ── */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #0f172a;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: transform 0.35s var(--ease-out), opacity 0.35s var(--ease-out);
+    pointer-events: none;
+    z-index: 100;
+  }
+  .toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── Responsive tweaks ── */
+  @media (max-height: 700px) {
+    .page { padding: 1.2vh 5vw 0.8vh; }
+    .hero { padding-top: 0.8vh; }
+    .features { padding: 0.6vh 0; }
+    .features-grid { gap: 6px; max-height: 340px; }
+    .feature-card { padding: 6px 4px; }
+    .footer { padding-top: 0.4vh; }
+    .btn-download { padding: 7px 20px; font-size: 13px; }
+  }
+
+  @media (max-height: 580px) {
+    .features-grid { max-height: 260px; gap: 4px; }
+    .hero-title { font-size: clamp(24px, 4vh, 36px); }
+    .hero-subtitle { font-size: clamp(12px, 1.6vh, 15px); }
+    .feature-icon { width: clamp(20px, 2.6vh, 26px); height: clamp(20px, 2.6vh, 26px); }
+    .feature-label { font-size: clamp(10px, 1.1vh, 12px); }
+    .btn-download { padding: 5px 16px; font-size: 12px; }
+  }
+
+  @media (max-width: 520px) {
+    .page { padding: 1.5vh 4vw 1vh; }
+    .features-grid { gap: 5px; }
+    .feature-card { border-radius: var(--radius-sm); padding: 6px 3px; }
+    .btn-download { padding: 8px 16px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page" id="app">
+
+  <!-- ─── HERO ─── -->
+  <header class="hero">
+    <h1 class="hero-title">Vibe<span class="accent">Office</span></h1>
+    <p class="hero-subtitle" id="heroSubtitle">1 分鐘完成安裝，即可擁有私人助理</p>
+  </header>
+
+  <!-- ─── FEATURES ─── -->
+  <section class="features" aria-label="Features">
+    <div class="features-grid" id="featuresGrid"></div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="download-area" id="downloadArea" role="group" aria-label="Downloads"></div>
+    <p class="copyright">© 2026 VibeOffice</p>
+  </footer>
+
+</div>
+
+<!-- ─── DOWNLOAD TOAST ─── -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  (function() {
+    'use strict';
+
+    /* ────── SVG ICONS ────── */
+    var ICONS = {
+      chat:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+      doc:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+      grid:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+      slides: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+      mind:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="7" y1="12" x2="3" y2="12"/><line x1="17" y1="12" x2="21" y2="12"/></svg>',
+      globe:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+      voice:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>',
+      search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+      bot:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="3"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/><circle cx="9" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.2" fill="currentColor" stroke="none"/></svg>',
+      download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>'
+    };
+
+    /* ────── LANGUAGE DATA ────── */
+    var LANG = {
+      zh: {
+        subtitle: '1 分鐘完成安裝，即可擁有私人助理',
+        features: [
+          { icon: 'chat',   label: '簡單對話即可完成' },
+          { icon: 'doc',    label: '簡單文檔' },
+          { icon: 'grid',   label: '簡單 Excel' },
+          { icon: 'slides', label: '精美 HTML 簡報' },
+          { icon: 'mind',   label: '腦圖' },
+          { icon: 'globe',  label: '瀏覽器操作' },
+          { icon: 'voice',  label: '語音生成' },
+          { icon: 'search', label: '資料搜集' },
+          { icon: 'bot',    label: '私人助理' }
+        ],
+        winBtn: '下載 Windows 版',
+        linuxBtn: '下載 Linux 版',
+        macBtn: '下載 macOS 版',
+        version: 'v1.0.0',
+        unsupported: '暫不支援此作業系統',
+        macComingSoon: 'macOS 版即將推出',
+        toastStarting: '正在下載 …',
+        toastError: '下載失敗，請重新嘗試'
+      },
+      en: {
+        subtitle: 'Get your personal AI assistant in 1 minute',
+        features: [
+          { icon: 'chat',   label: 'Simple Chat' },
+          { icon: 'doc',    label: 'Simple Docs' },
+          { icon: 'grid',   label: 'Simple Excel' },
+          { icon: 'slides', label: 'Beautiful HTML Slides' },
+          { icon: 'mind',   label: 'Mind Maps' },
+          { icon: 'globe',  label: 'Browser Automation' },
+          { icon: 'voice',  label: 'Voice Generation' },
+          { icon: 'search', label: 'Data Research' },
+          { icon: 'bot',    label: 'Personal Assistant' }
+        ],
+        winBtn: 'Download for Windows',
+        linuxBtn: 'Download for Linux',
+        macBtn: 'Download for macOS',
+        version: 'v1.0.0',
+        unsupported: 'Currently unsupported OS',
+        macComingSoon: 'macOS version coming soon',
+        toastStarting: 'Download starting …',
+        toastError: 'Download failed, please try again'
+      }
+    };
+
+    /* ────── DOWNLOAD BASE URL (GitHub Release assets) ────── */
+    var DOWNLOAD_BASE = 'https://github.com/johnnycls/vibe-office-official-site/releases/download/v1.0.0/';
+
+    /* ────── DETECT LANGUAGE ────── */
+    var langCode = (navigator.language || '').toLowerCase();
+    var isZh = langCode.startsWith('zh');
+    var lang = isZh ? LANG.zh : LANG.en;
+
+    /* ────── DETECT OS ────── */
+    function detectOS() {
+      var ua = (navigator.userAgent || '').toLowerCase();
+      var pf = (navigator.platform || '').toLowerCase();
+      if (/win/.test(ua) || /win/.test(pf)) return 'windows';
+      if (/linux/.test(ua) || /linux/.test(pf)) return 'linux';
+      if (/mac/.test(ua) || /mac/.test(pf) || /darwin/.test(pf)) return 'mac';
+      return 'other';
+    }
+    var os = detectOS();
+
+    /* ────── TOAST ────── */
+    var toastEl = document.getElementById('toast');
+    var toastTimer = null;
+
+    function showToast(text, duration) {
+      duration = duration || 3000;
+      toastEl.textContent = text;
+      toastEl.classList.add('visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function() {
+        toastEl.classList.remove('visible');
+      }, duration);
+    }
+
+    /* ────── BUILD DOWNLOAD LINK ────── */
+    function buildDownloadLink(label, filePath, iconSvg) {
+      var link = document.createElement('a');
+      link.className = 'btn-download';
+      link.href = filePath;
+      link.download = filePath.split('/').pop();
+      link.setAttribute('role', 'button');
+      link.innerHTML =
+        '<span class="btn-icon">' + iconSvg + '</span>' +
+        label +
+        '<span class="btn-version">' + lang.version + '</span>';
+
+      link.addEventListener('click', function(e) {
+        showToast(lang.toastStarting, 2500);
+      });
+
+      return link;
+    }
+
+    /* ────── BUILD UI ────── */
+
+    // 1. Hero
+    document.getElementById('heroSubtitle').textContent = lang.subtitle;
+
+    // 2. Features grid
+    var grid = document.getElementById('featuresGrid');
+    lang.features.forEach(function(f, index) {
+      var card = document.createElement('div');
+      card.className = 'feature-card';
+      card.style.animation = 'cardFadeIn 0.5s var(--ease-out) ' + (0.04 * (index + 1)) + 's both';
+      card.innerHTML =
+        '<span class="feature-icon">' + (ICONS[f.icon] || '') + '</span>' +
+        '<span class="feature-label">' + f.label + '</span>';
+      grid.appendChild(card);
+    });
+
+    // 3. Download area
+    var downloadArea = document.getElementById('downloadArea');
+
+    if (os === 'windows') {
+      var link = buildDownloadLink(
+        lang.winBtn,
+        DOWNLOAD_BASE + 'vibe-office-1.0.0-Setup.exe',
+        ICONS.download
+      );
+      downloadArea.appendChild(link);
+    } else if (os === 'linux') {
+      var link = buildDownloadLink(
+        lang.linuxBtn,
+        DOWNLOAD_BASE + 'vibe-office-1.0.0-x86_64.AppImage',
+        ICONS.download
+      );
+      downloadArea.appendChild(link);
+    } else if (os === 'mac') {
+      var comingSoon = document.createElement('span');
+      comingSoon.className = 'coming-soon';
+      comingSoon.textContent = lang.macComingSoon;
+      downloadArea.appendChild(comingSoon);
+    } else {
+      var span = document.createElement('span');
+      span.className = 'unsupported-os';
+      span.textContent = lang.unsupported;
+      downloadArea.appendChild(span);
+    }
+
+    /* ────── CARD ANIMATION KEYFRAMES (injected) ────── */
+    var style = document.createElement('style');
+    style.textContent = '@keyframes cardFadeIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}';
+    document.head.appendChild(style);
+
+    /* ────── SET HTML LANG ────── */
+    document.documentElement.lang = isZh ? 'zh' : 'en';
+
+  })();
+</script>
+
+</body>
+</html>

@@ -326,7 +326,8 @@ body {
   width: 60px; height: 60px; border-radius: 18px;
   background: var(--brand-subtle);
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px; font-size: 1.6rem;
+  margin: 0 auto 16px;
+  color: var(--brand-2);
 }
 #slide-3 .api-arrow {
   width: 60px; height: 2px;
@@ -355,7 +356,7 @@ body {
   width: 48px; height: 48px; border-radius: 14px;
   background: var(--brand-subtle);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
+  color: var(--brand-2);
 }
 #slide-4 .feature-label {
   font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
@@ -395,6 +396,7 @@ body {
   margin-left: 0; max-width: 80%;
 }
 #slide-5 .chat-option {
+  display: inline-flex; align-items: center; gap: 4px;
   padding: 8px 16px; border-radius: 100px;
   font-size: 0.82rem; font-weight: 500; cursor: default;
   background: rgba(255,255,255,0.7);
@@ -406,9 +408,16 @@ body {
   background: rgba(129,140,248,0.1);
   border-color: var(--brand);
 }
+#slide-5 .chat-option svg {
+  flex-shrink: 0;
+  vertical-align: middle;
+}
 #slide-5 .chat-typing {
   align-self: flex-start; font-size: 0.8rem; color: var(--text-muted);
   display: flex; align-items: center; gap: 4px; margin-top: 4px;
+}
+#slide-5 .chat-typing > span:last-child {
+  margin-left: 4px;
 }
 #slide-5 .chat-typing .dot {
   width: 6px; height: 6px; border-radius: 50%; background: var(--brand);
@@ -497,7 +506,7 @@ body {
   color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
   padding: 5px 18px; border-radius: 100px;
 }
-#slide-7 .pricing-icon { font-size: 2.2rem; margin-bottom: 12px; }
+#slide-7 .pricing-icon { color: var(--brand-2); margin-bottom: 12px; }
 #slide-7 .pricing-name { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
 #slide-7 .pricing-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
 #slide-7 .pricing-sub { text-align: center; margin-top: 28px; font-size: 0.88rem; color: var(--text-muted); }
@@ -523,7 +532,8 @@ body {
   width: 64px; height: 64px; border-radius: 50%;
   background: var(--brand-subtle);
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px; font-size: 1.8rem;
+  margin: 0 auto 16px;
+  color: var(--brand-2);
 }
 #slide-8 .security-title {
   font-size: 1rem; font-weight: 700; color: var(--text-primary);
@@ -556,16 +566,17 @@ body {
   gap: 16px; max-width: 560px; margin: 28px auto;
 }
 #slide-9 .free-point {
-  display: flex; align-items: flex-start; gap: 12px;
+  display: flex; align-items: center; gap: 12px;
   padding: 16px 20px; border-radius: var(--radius-md);
   background: rgba(129,140,248,0.04);
   font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;
+  text-align: left;
 }
 #slide-9 .free-point .check {
   width: 22px; height: 22px; border-radius: 50%;
   background: var(--brand); color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; flex-shrink: 0; margin-top: 2px;
+  flex-shrink: 0; margin-top: 2px;
 }
 #slide-9 .footer-text {
   text-align: center; font-size: 0.78rem; color: var(--text-muted);
@@ -607,19 +618,110 @@ body {
 }
 
 /* ── Responsive ── */
+@media (max-width: 900px) {
+  .slide { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+}
+
 @media (max-width: 768px) {
-  .slide { padding: 40px 20px; }
+  .slide { padding: 32px 16px; }
   .slide-inner { text-align: center; }
-  .fixed-logo { top: 18px; left: 18px; font-size: 1rem; }
-  .slide-nav { right: 8px; gap: 10px; }
-  .slide-nav .nav-dot { width: 8px; height: 8px; }
-  .slide-nav .nav-dot.active { width: 10px; height: 10px; }
-  .btn-primary { padding: 13px 28px; font-size: 0.9rem; }
+  .fixed-logo { top: 14px; left: 14px; font-size: 0.85rem; }
+  .slide-nav { right: 6px; gap: 8px; }
+  .slide-nav .nav-dot { width: 6px; height: 6px; }
+  .slide-nav .nav-dot.active { width: 8px; height: 8px; }
+  .btn-primary { padding: 11px 22px; font-size: 0.82rem; }
+  .btn-secondary { padding: 11px 22px; font-size: 0.82rem; }
+  .section-label { font-size: 0.65rem; padding: 4px 12px; margin-bottom: 12px; }
+  #slide-2 .step-card { padding: 24px 16px 20px; }
+  #slide-2 .step-number { width: 40px; height: 40px; font-size: 1rem; }
+  #slide-2 .steps-row { gap: 12px; margin-top: 20px; }
+  #slide-3 .api-card { padding: 24px 16px; }
+  #slide-4 .feature-icon { width: 36px; height: 36px; font-size: 1rem; }
+  #slide-4 .feature-label { font-size: 0.78rem; }
+  #slide-4 .feature-card { padding: 14px 8px; gap: 6px; }
+  #slide-5 .chat-mockup { margin-top: 16px; gap: 10px; }
+  #slide-5 .chat-msg { padding: 10px 14px; font-size: 0.82rem; max-width: 90%; }
+  #slide-6 .memory-rings { width: 180px; height: 180px; }
+  #slide-6 .memory-ring:nth-child(4) { inset: 55px; }
+  #slide-6 .memory-ring:nth-child(3) { inset: 38px; }
+  #slide-6 .memory-ring:nth-child(2) { inset: 20px; }
+  #slide-6 .memory-core { inset: 68px; }
+  #slide-7 .pricing-card { padding: 24px 16px; }
+  #slide-8 .security-card { padding: 24px 16px; }
+  #slide-9 .free-points { margin-top: 16px; gap: 10px; }
+  #slide-9 .free-point { padding: 12px 14px; font-size: 0.82rem; }
+  .scroll-hint { bottom: 20px; }
+  .scroll-hint span { font-size: 0.6rem; }
+  .scroll-hint .arrow { width: 14px; height: 14px; }
+  .free-badge { margin-bottom: 6px; }
 }
 
 @media (max-width: 480px) {
-  .slide { padding: 30px 16px; }
+  .slide { padding: 20px 12px; }
   .btn-row { flex-direction: column; align-items: center; }
+  .fixed-logo { top: 10px; left: 10px; font-size: 0.75rem; }
+  .fixed-logo .logo-dot { width: 6px; height: 6px; }
+  #slide-4 .feature-grid { gap: 6px; }
+  #slide-4 .feature-card { padding: 10px 6px; }
+  #slide-4 .feature-icon { width: 30px; height: 30px; font-size: 0.85rem; }
+  #slide-4 .feature-label { font-size: 0.7rem; }
+  #slide-2 .step-card { padding: 16px 12px 14px; }
+  #slide-6 .memory-rings { width: 140px; height: 140px; }
+  #slide-6 .memory-ring:nth-child(4) { inset: 42px; }
+  #slide-6 .memory-ring:nth-child(3) { inset: 28px; }
+  #slide-6 .memory-ring:nth-child(2) { inset: 14px; }
+  #slide-6 .memory-core { inset: 52px; }
+}
+
+@media (max-width: 768px) {
+  #slide-2 .step-card { padding: 10px 10px 10px; }
+  #slide-2 .step-number { width: 28px; height: 28px; font-size: 0.75rem; margin-bottom: 6px; }
+  #slide-2 .step-title { font-size: 0.82rem; }
+  #slide-2 .step-desc { font-size: 0.72rem; }
+  #slide-2 .steps-row { gap: 4px; margin-top: 10px; }
+  #slide-2 .step-connector { font-size: 1rem; }
+  #slide-2 h2, #slide-3 h2 { font-size: 1.2rem !important; }
+  #slide-2 .section-label, #slide-3 .section-label { margin-bottom: 6px; }
+  #slide-2 p, #slide-3 p { font-size: 0.78rem !important; margin-top: 4px !important; }
+  #slide-3 .api-card { padding: 14px 12px; }
+  #slide-3 .api-card div:first-of-type { font-size: 0.85rem !important; }
+  #slide-3 .api-card div:last-of-type { font-size: 0.72rem !important; }
+  #slide-3 .api-flow { gap: 8px; margin-top: 12px; }
+  #slide-3 .api-icon { width: 40px; height: 40px; margin-bottom: 8px; }
+  #slide-3 .api-icon svg { width: 18px; height: 18px; }
+  #slide-3 .fade-up.d5 { margin-top: 14px !important; }
+  #slide-3 .footer-text { margin-top: 6px !important; font-size: 0.65rem !important; }
+  #slide-7 .pricing-card { padding: 16px 12px; }
+  #slide-7 .pricing-icon { margin-bottom: 8px; }
+  #slide-7 .pricing-name { font-size: 0.95rem; }
+  #slide-7 .pricing-desc { font-size: 0.75rem; }
+  #slide-7 .pricing-sub { margin-top: 14px; font-size: 0.78rem; }
+  #slide-8 .security-card { padding: 16px 12px; }
+  #slide-8 .security-icon { width: 48px; height: 48px; margin-bottom: 10px; }
+  #slide-8 .security-title { font-size: 0.85rem; }
+  #slide-8 .security-desc { font-size: 0.75rem; }
+}
+@media (max-width: 480px) {
+  #slide-2 .step-card { padding: 6px 6px 6px; }
+  #slide-2 .step-number { width: 22px; height: 22px; font-size: 0.6rem; margin-bottom: 4px; }
+  #slide-2 .step-title { font-size: 0.72rem; }
+  #slide-2 .step-desc { font-size: 0.65rem; }
+  #slide-2 .steps-row { gap: 2px; margin-top: 6px; }
+  #slide-2 .step-connector { font-size: 0.8rem; }
+  #slide-2 h2, #slide-3 h2 { font-size: 1rem !important; }
+  #slide-2 .section-label, #slide-3 .section-label { font-size: 0.55rem; padding: 2px 8px; margin-bottom: 4px; }
+  #slide-2 p, #slide-3 p { font-size: 0.7rem !important; margin-top: 2px !important; }
+  #slide-3 .api-card { padding: 10px 8px; }
+  #slide-3 .api-card div:first-of-type { font-size: 0.75rem !important; }
+  #slide-3 .api-card div:last-of-type { font-size: 0.65rem !important; }
+  #slide-3 .api-flow { gap: 4px; margin-top: 8px; }
+  #slide-3 .api-icon { width: 32px; height: 32px; margin-bottom: 4px; }
+  #slide-3 .api-icon svg { width: 14px; height: 14px; }
+  #slide-3 .fade-up.d5 { margin-top: 10px !important; }
+  #slide-3 .footer-text { margin-top: 4px !important; font-size: 0.55rem !important; }
+  #slide-7 .pricing-card { padding: 12px 8px; }
+  #slide-8 .security-card { padding: 12px 8px; }
+  #slide-8 .security-icon { width: 36px; height: 36px; }
 }
 </style>
 </head>
@@ -659,246 +761,237 @@ body {
     <canvas id="particle-canvas"></canvas>
     <div class="slide-inner hero-content">
       <h1 class="hero-title fade-up">Vibe Office</h1>
-      <p class="hero-subtitle fade-up d2" id="heroSubtitle">你的 AI 個人秘書，一鍵開啟高效辦公</p>
+      <p class="hero-subtitle fade-up d2" id="heroSubtitle" data-i18n="hero.subtitle">你的 AI 個人秘書，一鍵開啟高效辦公</p>
       <div class="btn-row fade-up d3">
         <div id="downloadBtn1"></div>
-        <a href="#" class="btn-secondary" onclick="return false;">了解更多</a>
       </div>
     </div>
     <div class="scroll-hint">
-      <span>向下探索</span>
+      <span data-i18n="hero.scrollHint">向下探索</span>
       <div class="arrow"></div>
     </div>
   </section>
+  <!-- ═══ SLIDE 4: 多功能場景 ═══ -->
+  <section class="slide" id="slide-4">
+    <div class="slide-inner" style="text-align:center;">
+      <span class="section-label fade-up" data-i18n="slide4.label">全能助手</span>
+      <h2 class="fade-up d2" data-i18n="slide4.title" style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">無需切換多個工具，只需用日常語言對話</h2>
+      <p class="fade-up d3" data-i18n="slide4.subtitle" style="font-size:1rem;color:var(--text-muted);margin-top:8px;">AI 即可為你跨場景完成：</p>
+      <div class="feature-grid fade-up d4">
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature1">文檔</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature2">簡報</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><circle cx="5" cy="19" r="2"/><line x1="12" y1="9" x2="17.3" y2="6.7"/><line x1="12" y1="9" x2="6.7" y2="6.7"/><line x1="12" y1="15" x2="17.3" y2="17.3"/><line x1="12" y1="15" x2="6.7" y2="17.3"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature3">腦圖</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature4">試算表</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature5">資料搜集</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature6">自動化瀏覽器操作</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature7">語音生成</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature8">語音轉錄</div>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10c1.1 0 2-.9 2-2 0-.49-.19-.93-.39-1.27C13.41 18.39 13.3 18 13.3 17.5c0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/></svg></div>
+          <div class="feature-label" data-i18n="slide4.feature9">圖片繪製</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ═══ SLIDE 5: 引導式問答 ═══ -->
+  <section class="slide" id="slide-5">
+    <div class="slide-inner" style="text-align:center;">
+      <span class="section-label fade-up" data-i18n="slide5.label">零門檻上手</span>
+      <h2 class="fade-up d2" data-i18n="slide5.title" style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">引導式問答，零門檻上手</h2>
+      <p class="fade-up d3" data-i18n="slide5.desc" style="font-size:0.95rem;color:var(--text-muted);margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;">不懂 Prompt 技巧？沒關係！AI 會主動詢問你的需求並提供選項，像專業秘書一樣精確引導，精準捕捉你的真實意圖。</p>
+      <div class="chat-mockup fade-up d4">
+        <div class="chat-msg ai" data-i18n="slide5.msg1">
+          你好！今天想完成什麼任務呢？
+        </div>
+        <div class="chat-options">
+          <span class="chat-option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span data-i18n="slide5.opt1">製作簡報</span></span>
+          <span class="chat-option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span data-i18n="slide5.opt2">整理文檔</span></span>
+          <span class="chat-option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span data-i18n="slide5.opt3">資料搜集</span></span>
+        </div>
+        <div class="chat-msg user" data-i18n="slide5.msg2">
+          幫我製作一份季度銷售簡報
+        </div>
+        <div class="chat-msg ai" data-i18n="slide5.msg3">
+          好的！請問你偏好哪種視覺風格？
+        </div>
+        <div class="chat-options">
+          <span class="chat-option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/></svg><span data-i18n="slide5.opt4">專業商務</span></span>
+          <span class="chat-option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg><span data-i18n="slide5.opt5">簡約現代</span></span>
+          <span class="chat-option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span data-i18n="slide5.opt6">創意活潑</span></span>
+        </div>
+        <div class="chat-msg user" data-i18n="slide5.msg4">
+          專業商務
+        </div>
+        <div class="chat-msg ai" data-i18n="slide5.msg5">
+          明白了！正在為你生成專業商務風格的季度銷售簡報…
+        </div>
+        <div class="chat-typing">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span><span data-i18n="slide5.typing">AI 工作中</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ═══ SLIDE 7: 香港直連 ═══ -->
+  <section class="slide" id="slide-7">
+    <div class="slide-inner" style="text-align:center;">
+      <span class="section-label fade-up" data-i18n="slide7.label">本地優化</span>
+      <h2 class="fade-up d2" data-i18n="slide7.title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">香港本地直連，無需 VPN</h2>
+      <p class="fade-up d3" data-i18n="slide7.subtitle" style="font-size:1rem;color:var(--text-muted);margin-top:8px;">針對本地優化，在香港無需任何 VPN 即可直連使用。</p>
+      <div class="pricing-row fade-up d4">
+        <div class="pricing-card glass-card">
+          <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+          <div class="pricing-name" data-i18n="slide7.card1.name">極便宜</div>
+          <div class="pricing-desc" data-i18n="slide7.card1.desc">日常輕量使用<br>適合簡單任務與問答</div>
+        </div>
+        <div class="pricing-card glass-card">
+          <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="pricing-name" data-i18n="slide7.card2.name">便宜</div>
+          <div class="pricing-desc" data-i18n="slide7.card2.desc">平衡效能與成本<br>適合日常工作場景</div>
+        </div>
+        <div class="pricing-card glass-card featured">
+          <div class="pricing-badge" data-i18n="slide7.badge">推薦</div>
+          <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+          <div class="pricing-name" data-i18n="slide7.card3.name">香港 Pro</div>
+          <div class="pricing-desc" data-i18n="slide7.card3.desc">頂尖效能<br>適合高負載專業用途</div>
+        </div>
+      </div>
+      <p class="pricing-sub fade-up d5" data-i18n="slide7.sub">三種彈性模式，完美兼顧效能與預算</p>
+    </div>
+  </section>
+  <!-- ═══ SLIDE 8: 安全防護 ═══ -->
+  <section class="slide" id="slide-8">
+    <div class="slide-inner" style="text-align:center;">
+      <span class="section-label fade-up" data-i18n="slide8.label">安全可靠</span>
+      <h2 class="fade-up d2" data-i18n="slide8.title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">嚴格安全防護，權限全掌控</h2>
+      <div class="security-row fade-up d4">
+        <div class="security-card glass-card">
+          <div class="security-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="security-title" data-i18n="slide8.card1.title">不亂裝程式</div>
+          <div class="security-desc" data-i18n="slide8.card1.desc">未經你明確授權，絕不安裝任何程式或插件</div>
+        </div>
+        <div class="security-card glass-card">
+          <div class="security-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+          <div class="security-title" data-i18n="slide8.card2.title">不亂刪文件</div>
+          <div class="security-desc" data-i18n="slide8.card2.desc">所有文件操作都需經你確認，絕不擅自刪除</div>
+        </div>
+        <div class="security-card glass-card">
+          <div class="security-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="security-title" data-i18n="slide8.card3.title">絕不擅自提交敏感資料</div>
+          <div class="security-desc" data-i18n="slide8.card3.desc">敏感數據在提交前必定先請示你的許可</div>
+        </div>
+      </div>
+      <p class="fade-up d5" data-i18n="slide8.sub" style="text-align:center;font-size:0.9rem;color:var(--text-muted);margin-top:24px;">採取嚴格的權限管理機制，保障隱私安全</p>
+    </div>
+  </section>
+  <!-- ═══ SLIDE 9: 完全免費 ═══ -->
+  <section class="slide" id="slide-9">
+    <div class="slide-inner" style="text-align:center;">
+      <span class="section-label fade-up" data-i18n="slide9.label">價格透明</span>
+      <h2 class="fade-up d2" data-i18n="slide9.title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">100% 軟件免費，拒絕溢價</h2>
+      <div class="free-badge fade-up d3" data-i18n="slide9.badge">完全免費</div>
+      <div class="free-points fade-up d4">
+        <div class="free-point glass-card">
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span data-i18n="slide9.point1">不收任何訂閱費</span>
+        </div>
+        <div class="free-point glass-card">
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span data-i18n="slide9.point2">你只需自付底層純粹的 API 消耗費用</span>
+        </div>
+        <div class="free-point glass-card">
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span data-i18n="slide9.point3">用多少付多少</span>
+        </div>
+        <div class="free-point glass-card">
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span data-i18n="slide9.point4">絕無任何隱形中間商賺差價</span>
+        </div>
+      </div>
+      </div>
+  </section>
+  <!-- ═══ SLIDE 6: 智能記憶 ═══ -->
+  <section class="slide" id="slide-6">
+    <div class="slide-inner" style="text-align:center;">
+      <span class="section-label fade-up" data-i18n="slide6.label">越用越懂你</span>
+      <h2 class="fade-up d2" data-i18n="slide6.title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">多層記憶與上下文壓縮</h2>
+      <p class="fade-up d3" data-i18n="slide6.desc" style="font-size:0.95rem;color:var(--text-muted);margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;">內建智能記憶系統，越用越懂你。配合頂尖的上下文壓縮機制，即使長對話也絕不「斷片」或超出 Token 限制，始終保持脈絡清晰。</p>
 
+    </div>
+  </section>
   <!-- ═══ SLIDE 2: 極簡安裝 ═══ -->
   <section class="slide" id="slide-2">
     <div class="slide-inner">
-      <span class="section-label fade-up">極簡安裝</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">1 分鐘內搞定，立即開啟高效辦公！</h2>
-      <p class="fade-up d3" style="font-size:1.05rem;color:var(--text-muted);margin-top:8px;">無需複雜設定。一鍵下載安裝。</p>
+      <span class="section-label fade-up" data-i18n="slide2.label">極簡安裝</span>
+      <h2 class="fade-up d2" data-i18n="slide2.title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">1 分鐘內搞定，立即開啟高效辦公！</h2>
+      <p class="fade-up d3" data-i18n="slide2.subtitle" style="font-size:1.05rem;color:var(--text-muted);margin-top:8px;">無需複雜設定。一鍵下載安裝。</p>
       <div class="steps-row fade-up d4">
         <div class="step-card glass-card">
           <div class="step-number">1</div>
-          <div class="step-title">下載 Vibe Office</div>
-          <div class="step-desc">前往官網一鍵下載，支援 Windows 與 macOS</div>
+          <div class="step-title" data-i18n="slide2.step1.title">下載 Vibe Office</div>
+          <div class="step-desc" data-i18n="slide2.step1.desc">前往官網一鍵下載，支援 Windows 與 macOS</div>
         </div>
         <div class="step-connector">→</div>
         <div class="step-card glass-card">
           <div class="step-number">2</div>
-          <div class="step-title">安裝並啟動</div>
-          <div class="step-desc">雙擊安裝檔，自動完成設定並啟動應用</div>
+          <div class="step-title" data-i18n="slide2.step2.title">安裝並啟動</div>
+          <div class="step-desc" data-i18n="slide2.step2.desc">雙擊安裝檔，自動完成設定並啟動應用</div>
         </div>
         <div class="step-connector">→</div>
         <div class="step-card glass-card">
           <div class="step-number">3</div>
-          <div class="step-title">開始使用</div>
-          <div class="step-desc">開啟應用，即刻享受 AI 秘書的高效協助</div>
+          <div class="step-title" data-i18n="slide2.step3.title">開始使用</div>
+          <div class="step-desc" data-i18n="slide2.step3.desc">開啟應用，即刻享受 AI 秘書的高效協助</div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- ═══ SLIDE 3: API Key 設定 ═══ -->
   <section class="slide" id="slide-3">
     <div class="slide-inner" style="text-align:center;">
-      <span class="section-label fade-up">簡單設定</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">在 OpenRouter 註冊並創建 API Key</h2>
-      <p class="fade-up d3" style="font-size:1.05rem;color:var(--text-muted);margin-top:8px;">複製貼回 Vibe Office，即刻啟用</p>
+      <span class="section-label fade-up" data-i18n="slide3.label">簡單設定</span>
+      <h2 class="fade-up d2" data-i18n="slide3.title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">在 OpenRouter 註冊並創建 API Key</h2>
+      <p class="fade-up d3" data-i18n="slide3.subtitle" style="font-size:1.05rem;color:var(--text-muted);margin-top:8px;">複製貼回 Vibe Office，即刻啟用</p>
       <div class="api-flow fade-up d4">
         <div class="api-card glass-card">
-          <div class="api-icon">🔑</div>
-          <div style="font-weight:700;font-size:1.05rem;margin-bottom:4px;">OpenRouter 註冊</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);">前往 openrouter.ai 註冊帳號並獲取 API Key</div>
+          <div class="api-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M15.5 7.5L19 4m-3.5 3.5L10 13m5.5-5.5l3.5-3.5m-6.5 9a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78z"/><path d="M21 2l-2 2"/></svg></div>
+          <div data-i18n="slide3.card1.title" style="font-weight:700;font-size:1.05rem;margin-bottom:4px;">OpenRouter 註冊</div>
+          <div data-i18n="slide3.card1.desc" style="font-size:0.85rem;color:var(--text-muted);">前往 openrouter.ai 註冊帳號並獲取 API Key</div>
         </div>
         <div class="api-arrow"></div>
         <div class="api-card glass-card">
-          <div class="api-icon">📋</div>
-          <div style="font-weight:700;font-size:1.05rem;margin-bottom:4px;">貼入 Vibe Office</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);">將 API Key 貼入設定頁面，一鍵完成配置</div>
+          <div class="api-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+          <div data-i18n="slide3.card2.title" style="font-weight:700;font-size:1.05rem;margin-bottom:4px;">貼入 Vibe Office</div>
+          <div data-i18n="slide3.card2.desc" style="font-size:0.85rem;color:var(--text-muted);">將 API Key 貼入設定頁面，一鍵完成配置</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ SLIDE 4: 多功能場景 ═══ -->
-  <section class="slide" id="slide-4">
-    <div class="slide-inner" style="text-align:center;">
-      <span class="section-label fade-up">全能助手</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">無需切換多個工具，只需用日常語言對話</h2>
-      <p class="fade-up d3" style="font-size:1rem;color:var(--text-muted);margin-top:8px;">AI 即可為你跨場景完成：</p>
-      <div class="feature-grid fade-up d4">
-        <div class="feature-card glass-card">
-          <div class="feature-icon">📄</div>
-          <div class="feature-label">文檔</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">📊</div>
-          <div class="feature-label">簡報</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">🧠</div>
-          <div class="feature-label">腦圖</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">📈</div>
-          <div class="feature-label">試算表</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">🔍</div>
-          <div class="feature-label">資料搜集</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">🌐</div>
-          <div class="feature-label">自動化瀏覽器操作</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">🔊</div>
-          <div class="feature-label">語音生成</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">🎙️</div>
-          <div class="feature-label">語音轉錄</div>
-        </div>
-        <div class="feature-card glass-card">
-          <div class="feature-icon">🎨</div>
-          <div class="feature-label">圖片繪製</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SLIDE 5: 引導式問答 ═══ -->
-  <section class="slide" id="slide-5">
-    <div class="slide-inner" style="text-align:center;">
-      <span class="section-label fade-up">零門檻上手</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">引導式問答，零門檻上手</h2>
-      <p class="fade-up d3" style="font-size:0.95rem;color:var(--text-muted);margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;">不懂 Prompt 技巧？沒關係！AI 會主動詢問你的需求並提供選項，像專業秘書一樣精確引導，精準捕捉你的真實意圖。</p>
-      <div class="chat-mockup fade-up d4">
-        <div class="chat-msg ai">
-          你好！今天想完成什麼任務呢？
-        </div>
-        <div class="chat-options">
-          <span class="chat-option">📊 製作簡報</span>
-          <span class="chat-option">📄 整理文檔</span>
-          <span class="chat-option">🔍 資料搜集</span>
-        </div>
-        <div class="chat-msg user">
-          幫我製作一份季度銷售簡報
-        </div>
-        <div class="chat-msg ai">
-          好的！請問你偏好哪種視覺風格？
-        </div>
-        <div class="chat-options">
-          <span class="chat-option">💼 專業商務</span>
-          <span class="chat-option">✨ 簡約現代</span>
-          <span class="chat-option">🎯 創意活潑</span>
-        </div>
-        <div class="chat-msg user">
-          專業商務
-        </div>
-        <div class="chat-msg ai">
-          明白了！正在為你生成專業商務風格的季度銷售簡報…
-        </div>
-        <div class="chat-typing">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span> AI 工作中
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SLIDE 6: 智能記憶 ═══ -->
-  <section class="slide" id="slide-6">
-    <div class="slide-inner" style="text-align:center;">
-      <span class="section-label fade-up">越用越懂你</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">多層記憶與上下文壓縮</h2>
-      <p class="fade-up d3" style="font-size:0.95rem;color:var(--text-muted);margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;">內建智能記憶系統，越用越懂你。配合頂尖的上下文壓縮機制，即使長對話也絕不「斷片」或超出 Token 限制，始終保持脈絡清晰。</p>
-
-    </div>
-  </section>
-
-  <!-- ═══ SLIDE 7: 香港直連 ═══ -->
-  <section class="slide" id="slide-7">
-    <div class="slide-inner" style="text-align:center;">
-      <span class="section-label fade-up">本地優化</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">香港本地直連，無需 VPN</h2>
-      <p class="fade-up d3" style="font-size:1rem;color:var(--text-muted);margin-top:8px;">針對本地優化，在香港無需任何 VPN 即可直連使用。</p>
-      <div class="pricing-row fade-up d4">
-        <div class="pricing-card glass-card">
-          <div class="pricing-icon">💡</div>
-          <div class="pricing-name">極便宜</div>
-          <div class="pricing-desc">日常輕量使用<br>適合簡單任務與問答</div>
-        </div>
-        <div class="pricing-card glass-card">
-          <div class="pricing-icon">⚡</div>
-          <div class="pricing-name">便宜</div>
-          <div class="pricing-desc">平衡效能與成本<br>適合日常工作場景</div>
-        </div>
-        <div class="pricing-card glass-card featured">
-          <div class="pricing-badge">推薦</div>
-          <div class="pricing-icon">🚀</div>
-          <div class="pricing-name">香港 Pro</div>
-          <div class="pricing-desc">頂尖效能<br>適合高負載專業用途</div>
-        </div>
-      </div>
-      <p class="pricing-sub fade-up d5">三種彈性模式，完美兼顧效能與預算</p>
-    </div>
-  </section>
-
-  <!-- ═══ SLIDE 8: 安全防護 ═══ -->
-  <section class="slide" id="slide-8">
-    <div class="slide-inner" style="text-align:center;">
-      <span class="section-label fade-up">安全可靠</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">嚴格安全防護，權限全掌控</h2>
-      <div class="security-row fade-up d4">
-        <div class="security-card glass-card">
-          <div class="security-icon">🔒</div>
-          <div class="security-title">不亂裝程式</div>
-          <div class="security-desc">未經你明確授權，絕不安裝任何程式或插件</div>
-        </div>
-        <div class="security-card glass-card">
-          <div class="security-icon">🗑️</div>
-          <div class="security-title">不亂刪文件</div>
-          <div class="security-desc">所有文件操作都需經你確認，絕不擅自刪除</div>
-        </div>
-        <div class="security-card glass-card">
-          <div class="security-icon">🛡️</div>
-          <div class="security-title">絕不擅自提交敏感資料</div>
-          <div class="security-desc">敏感數據在提交前必定先請示你的許可</div>
-        </div>
-      </div>
-      <p class="fade-up d5" style="text-align:center;font-size:0.9rem;color:var(--text-muted);margin-top:24px;">採取嚴格的權限管理機制，保障隱私安全</p>
-    </div>
-  </section>
-
-  <!-- ═══ SLIDE 9: 完全免費 ═══ -->
-  <section class="slide" id="slide-9">
-    <div class="slide-inner" style="text-align:center;">
-      <span class="section-label fade-up">價格透明</span>
-      <h2 class="fade-up d2" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;">100% 軟件免費，拒絕溢價</h2>
-      <div class="free-badge fade-up d3">完全免費</div>
-      <div class="free-points fade-up d4">
-        <div class="free-point glass-card">
-          <span class="check">✓</span>
-          <span>不收任何訂閱費</span>
-        </div>
-        <div class="free-point glass-card">
-          <span class="check">✓</span>
-          <span>你只需自付底層純粹的 API 消耗費用</span>
-        </div>
-        <div class="free-point glass-card">
-          <span class="check">✓</span>
-          <span>用多少付多少</span>
-        </div>
-        <div class="free-point glass-card">
-          <span class="check">✓</span>
-          <span>絕無任何隱形中間商賺差價</span>
-        </div>
-      </div>
-      <div class="fade-up d5" style="margin-top:28px;">
+      <div class="fade-up d5" style="margin-top:28px;text-align:center;">
         <div id="downloadBtn2"></div>
       </div>
-      <p class="footer-text fade-up d6">© 2026 Vibe Office</p>
+      <p class="footer-text fade-up d6" data-i18n="slide9.footer" style="margin-top:12px;">© 2026 Vibe Office</p>
     </div>
   </section>
 
@@ -907,7 +1000,7 @@ body {
 <!-- Download Toast -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script>var VIBE_OFFICE_VERSION = '1.0.2';</script>
+<script>var VIBE_OFFICE_VERSION = '1.0.4';</script>
 <script>
 (function() {
   const wrapper = document.getElementById('slidesWrapper');
@@ -1107,6 +1200,82 @@ body {
 
   var LANG = {
     zh: {
+      'hero.subtitle': '你的 AI 個人秘書，一鍵開啟高效辦公',
+      'hero.scrollHint': '向下探索',
+      'slide2.label': '極簡安裝',
+      'slide2.title': '1 分鐘內搞定，立即開啟高效辦公！',
+      'slide2.subtitle': '無需複雜設定。一鍵下載安裝。',
+      'slide2.step1.title': '下載 Vibe Office',
+      'slide2.step1.desc': '前往官網一鍵下載，支援 Windows 與 macOS',
+      'slide2.step2.title': '安裝並啟動',
+      'slide2.step2.desc': '雙擊安裝檔，自動完成設定並啟動應用',
+      'slide2.step3.title': '開始使用',
+      'slide2.step3.desc': '開啟應用，即刻享受 AI 秘書的高效協助',
+      'slide3.label': '簡單設定',
+      'slide3.title': '在 OpenRouter 註冊並創建 API Key',
+      'slide3.subtitle': '複製貼回 Vibe Office，即刻啟用',
+      'slide3.card1.title': 'OpenRouter 註冊',
+      'slide3.card1.desc': '前往 openrouter.ai 註冊帳號並獲取 API Key',
+      'slide3.card2.title': '貼入 Vibe Office',
+      'slide3.card2.desc': '將 API Key 貼入設定頁面，一鍵完成配置',
+      'slide4.label': '全能助手',
+      'slide4.title': '無需切換多個工具，只需用日常語言對話',
+      'slide4.subtitle': 'AI 即可為你跨場景完成：',
+      'slide4.feature1': '文檔',
+      'slide4.feature2': '簡報',
+      'slide4.feature3': '腦圖',
+      'slide4.feature4': '試算表',
+      'slide4.feature5': '資料搜集',
+      'slide4.feature6': '自動化瀏覽器操作',
+      'slide4.feature7': '語音生成',
+      'slide4.feature8': '語音轉錄',
+      'slide4.feature9': '圖片繪製',
+      'slide5.label': '零門檻上手',
+      'slide5.title': '引導式問答，零門檻上手',
+      'slide5.desc': '不懂 Prompt 技巧？沒關係！AI 會主動詢問你的需求並提供選項，像專業秘書一樣精確引導，精準捕捉你的真實意圖。',
+      'slide5.msg1': '你好！今天想完成什麼任務呢？',
+      'slide5.opt1': '製作簡報',
+      'slide5.opt2': '整理文檔',
+      'slide5.opt3': '資料搜集',
+      'slide5.msg2': '幫我製作一份季度銷售簡報',
+      'slide5.msg3': '好的！請問你偏好哪種視覺風格？',
+      'slide5.opt4': '專業商務',
+      'slide5.opt5': '簡約現代',
+      'slide5.opt6': '創意活潑',
+      'slide5.msg4': '專業商務',
+      'slide5.msg5': '明白了！正在為你生成專業商務風格的季度銷售簡報…',
+      'slide5.typing': 'AI 工作中',
+      'slide6.label': '越用越懂你',
+      'slide6.title': '多層記憶與上下文壓縮',
+      'slide6.desc': '內建智能記憶系統，越用越懂你。配合頂尖的上下文壓縮機制，即使長對話也絕不「斷片」或超出 Token 限制，始終保持脈絡清晰。',
+      'slide7.label': '本地優化',
+      'slide7.title': '香港本地直連，無需 VPN',
+      'slide7.subtitle': '針對本地優化，在香港無需任何 VPN 即可直連使用。',
+      'slide7.card1.name': '極便宜',
+      'slide7.card1.desc': '日常輕量使用<br>適合簡單任務與問答',
+      'slide7.card2.name': '便宜',
+      'slide7.card2.desc': '平衡效能與成本<br>適合日常工作場景',
+      'slide7.card3.name': '香港 Pro',
+      'slide7.card3.desc': '頂尖效能<br>適合高負載專業用途',
+      'slide7.badge': '推薦',
+      'slide7.sub': '三種彈性模式，完美兼顧效能與預算',
+      'slide8.label': '安全可靠',
+      'slide8.title': '嚴格安全防護，權限全掌控',
+      'slide8.card1.title': '不亂裝程式',
+      'slide8.card1.desc': '未經你明確授權，絕不安裝任何程式或插件',
+      'slide8.card2.title': '不亂刪文件',
+      'slide8.card2.desc': '所有文件操作都需經你確認，絕不擅自刪除',
+      'slide8.card3.title': '絕不擅自提交敏感資料',
+      'slide8.card3.desc': '敏感數據在提交前必定先請示你的許可',
+      'slide8.sub': '採取嚴格的權限管理機制，保障隱私安全',
+      'slide9.label': '價格透明',
+      'slide9.title': '100% 軟件免費，拒絕溢價',
+      'slide9.badge': '完全免費',
+      'slide9.point1': '不收任何訂閱費',
+      'slide9.point2': '你只需自付底層純粹的 API 消耗費用',
+      'slide9.point3': '用多少付多少',
+      'slide9.point4': '絕無任何隱形中間商賺差價',
+      'slide9.footer': '© 2026 Vibe Office',
       subtitle: '你的 AI 個人秘書，一鍵開啟高效辦公',
       download: '\u2B07 立即下載',
       downloadVibe: '\u2B07 立即下載 Vibe Office',
@@ -1114,6 +1283,82 @@ body {
       toastError: '下載失敗，請重新嘗試'
     },
     en: {
+      'hero.subtitle': 'Your AI personal assistant, one click to efficient work',
+      'hero.scrollHint': 'Scroll to explore',
+      'slide2.label': 'Quick Setup',
+      'slide2.title': 'Get started in 1 minute, boost your productivity!',
+      'slide2.subtitle': 'No complex setup required. One-click download & install.',
+      'slide2.step1.title': 'Download Vibe Office',
+      'slide2.step1.desc': 'One-click download from the official site, supports Windows & macOS',
+      'slide2.step2.title': 'Install & Launch',
+      'slide2.step2.desc': 'Double-click the installer, auto-configuration and launch',
+      'slide2.step3.title': 'Start Using',
+      'slide2.step3.desc': 'Open the app and enjoy AI-powered assistance',
+      'slide3.label': 'Simple Setup',
+      'slide3.title': 'Register on OpenRouter and create an API Key',
+      'slide3.subtitle': 'Copy and paste into Vibe Office, ready to go',
+      'slide3.card1.title': 'Register on OpenRouter',
+      'slide3.card1.desc': 'Go to openrouter.ai, sign up and get your API Key',
+      'slide3.card2.title': 'Paste into Vibe Office',
+      'slide3.card2.desc': 'Paste the API Key into settings, one-click configuration',
+      'slide4.label': 'All-in-One Assistant',
+      'slide4.title': 'No need to switch between tools, just talk in everyday language',
+      'slide4.subtitle': 'AI can accomplish across scenarios:',
+      'slide4.feature1': 'Documents',
+      'slide4.feature2': 'Presentations',
+      'slide4.feature3': 'Mind Maps',
+      'slide4.feature4': 'Spreadsheets',
+      'slide4.feature5': 'Research',
+      'slide4.feature6': 'Browser Automation',
+      'slide4.feature7': 'Voice Generation',
+      'slide4.feature8': 'Voice Transcription',
+      'slide4.feature9': 'Image Generation',
+      'slide5.label': 'Zero Learning Curve',
+      'slide5.title': 'Guided Q&A, zero learning curve',
+      'slide5.desc': 'Don\'t know prompt techniques? No problem! AI will proactively ask about your needs and provide options, guiding you like a professional secretary.',
+      'slide5.msg1': 'Hello! What would you like to accomplish today?',
+      'slide5.opt1': 'Create Presentation',
+      'slide5.opt2': 'Organize Documents',
+      'slide5.opt3': 'Research',
+      'slide5.msg2': 'Help me create a quarterly sales presentation',
+      'slide5.msg3': 'Sure! What visual style do you prefer?',
+      'slide5.opt4': 'Professional',
+      'slide5.opt5': 'Minimal Modern',
+      'slide5.opt6': 'Creative & Fun',
+      'slide5.msg4': 'Professional',
+      'slide5.msg5': 'Got it! Generating a professional quarterly sales presentation...',
+      'slide5.typing': 'AI working',
+      'slide6.label': 'Smarter with You',
+      'slide6.title': 'Multi-layer Memory & Context Compression',
+      'slide6.desc': 'Built-in smart memory system that gets better with use. Combined with advanced context compression, long conversations never lose track or exceed token limits.',
+      'slide7.label': 'Local Optimization',
+      'slide7.title': 'Hong Kong Direct Connect, No VPN Needed',
+      'slide7.subtitle': 'Optimized for local use in Hong Kong, connect directly without any VPN.',
+      'slide7.card1.name': 'Ultra Cheap',
+      'slide7.card1.desc': 'Daily light use<br>Suitable for simple tasks & Q&A',
+      'slide7.card2.name': 'Cheap',
+      'slide7.card2.desc': 'Balanced performance & cost<br>Suitable for daily work',
+      'slide7.card3.name': 'Hong Kong Pro',
+      'slide7.card3.desc': 'Top-tier performance<br>Suitable for heavy professional use',
+      'slide7.badge': 'Recommended',
+      'slide7.sub': 'Three flexible modes, balancing performance and budget',
+      'slide8.label': 'Secure & Reliable',
+      'slide8.title': 'Strict Security, Full Control',
+      'slide8.card1.title': 'No Unauthorized Installations',
+      'slide8.card1.desc': 'Never installs programs or plugins without your explicit permission',
+      'slide8.card2.title': 'No Unauthorized Deletions',
+      'slide8.card2.desc': 'All file operations require your confirmation, never deletes without permission',
+      'slide8.card3.title': 'Never Submits Sensitive Data Without Approval',
+      'slide8.card3.desc': 'Sensitive data always asks for your permission before submission',
+      'slide8.sub': 'Strict permission management to protect your privacy',
+      'slide9.label': 'Transparent Pricing',
+      'slide9.title': '100% Free Software, No Markup',
+      'slide9.badge': 'Completely Free',
+      'slide9.point1': 'No subscription fees',
+      'slide9.point2': 'You only pay for the underlying API usage',
+      'slide9.point3': 'Pay as you go',
+      'slide9.point4': 'No hidden middleman markup',
+      'slide9.footer': '\u00A9 2026 Vibe Office',
       subtitle: 'Your AI personal assistant, one click to efficient work',
       download: '\u2B07 Download',
       downloadVibe: '\u2B07 Download Vibe Office',
@@ -1125,6 +1370,22 @@ body {
   var langCode = (navigator.language || '').toLowerCase();
   var isZh = langCode.startsWith('zh');
   var lang = isZh ? LANG.zh : LANG.en;
+
+  function applyTranslations() {
+    var els = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      var key = el.getAttribute('data-i18n');
+      var text = lang[key];
+      if (text) {
+        if (text.indexOf('<br>') !== -1) {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
+      }
+    }
+  }
 
   function detectOS() {
     var ua = (navigator.userAgent || '').toLowerCase();
@@ -1174,8 +1435,7 @@ body {
     return link;
   }
 
-  var subtitleEl = document.getElementById('heroSubtitle');
-  if (subtitleEl) subtitleEl.textContent = lang.subtitle;
+  applyTranslations();
 
   var btn1 = document.getElementById('downloadBtn1');
   if (btn1) {

@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VibeOffice — Your Personal AI Assistant</title>
-<meta name="description" content="VibeOffice is your offline-first AI assistant. Chat, create documents, build presentations, research data, and more — all in one native desktop app.">
-<meta name="keywords" content="AI assistant, office suite, desktop app, offline AI, document editor, presentation tool, mind map, voice generation, browser automation">
+<meta name="description" content="VibeOffice is your offline-first AI assistant. Create documents, Excel sheets, HTML slides, mind maps, browser automation, voice generation, data research, voice transcription, and image generation — all in one native desktop app.">
+<meta name="keywords" content="AI assistant, office suite, desktop app, offline AI, document editor, Excel, presentation tool, mind map, voice generation, voice transcription, image generation, browser automation">
 
 <!-- Open Graph -->
 <meta property="og:title" content="VibeOffice — Your Personal AI Assistant">
-<meta property="og:description" content="Get your personal AI assistant in 1 minute. Chat, create documents, build presentations, and more — all offline-first.">
+<meta property="og:description" content="Get your personal AI assistant in 1 minute. Create documents, Excel sheets, HTML slides, mind maps, and more — all offline-first.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vibeoffice.com">
 <meta property="og:image" content="icon.svg">
@@ -322,7 +322,7 @@
   <!-- ─── HERO ─── -->
   <header class="hero">
     <h1 class="hero-title">Vibe<span class="accent">Office</span></h1>
-    <p class="hero-subtitle" id="heroSubtitle">1 分鐘完成安裝，即可擁有私人助理</p>
+    <p class="hero-subtitle" id="heroSubtitle">1分鐘完成安裝，即可擁有安全可靠的私人助理</p>
   </header>
 
   <!-- ─── FEATURES ─── -->
@@ -356,28 +356,39 @@
       voice:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>',
       search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
       bot:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="3"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/><circle cx="9" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.2" fill="currentColor" stroke="none"/></svg>',
-      download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>'
+      download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+      transcript: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/><rect x="10" y="5" width="4" height="1"/></svg>',
+      image: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>'
+    };
+
+    /* ────── VERSION & DOWNLOAD CONSTANTS ────── */
+    var VERSION_NUM = '1.0.1';
+    var VERSION = 'v' + VERSION_NUM;
+    var DOWNLOAD_BASE = 'https://github.com/johnnycls/vibe-office-official-site/releases/download/' + VERSION + '/';
+    var DOWNLOAD_FILES = {
+      windows: 'vibe-office-' + VERSION_NUM + '-Setup.exe',
+      linux: 'vibe-office-' + VERSION_NUM + '-x86_64.AppImage'
     };
 
     /* ────── LANGUAGE DATA ────── */
     var LANG = {
       zh: {
-        subtitle: '1 分鐘完成安裝，即可擁有私人助理',
+        subtitle: '1分鐘完成安裝，即可擁有安全可靠的私人助理',
         features: [
-          { icon: 'chat',   label: '簡單對話即可完成' },
-          { icon: 'doc',    label: '簡單文檔' },
-          { icon: 'grid',   label: '簡單 Excel' },
-          { icon: 'slides', label: '精美 HTML 簡報' },
-          { icon: 'mind',   label: '腦圖' },
-          { icon: 'globe',  label: '瀏覽器操作' },
-          { icon: 'voice',  label: '語音生成' },
-          { icon: 'search', label: '資料搜集' },
-          { icon: 'bot',    label: '私人助理' }
+          { icon: 'doc',        label: '簡單文檔' },
+          { icon: 'grid',       label: '簡單Excel' },
+          { icon: 'slides',     label: '精美HTML簡報' },
+          { icon: 'mind',       label: '腦圖' },
+          { icon: 'globe',      label: '瀏覽器操作' },
+          { icon: 'voice',      label: '語音生成' },
+          { icon: 'search',     label: '資料搜集' },
+          { icon: 'transcript', label: '語音轉錄' },
+          { icon: 'image',      label: '圖片生成' }
         ],
         winBtn: '下載 Windows 版',
         linuxBtn: '下載 Linux 版',
         macBtn: '下載 macOS 版',
-        version: 'v1.0.0',
+        version: VERSION,
         unsupported: '暫不支援此作業系統',
         macComingSoon: 'macOS 版即將推出',
         mobileUnsupported: '請在電腦上下載',
@@ -387,20 +398,20 @@
       en: {
         subtitle: 'Get your personal AI assistant in 1 minute',
         features: [
-          { icon: 'chat',   label: 'Simple Chat' },
-          { icon: 'doc',    label: 'Simple Docs' },
-          { icon: 'grid',   label: 'Simple Excel' },
-          { icon: 'slides', label: 'Beautiful HTML Slides' },
-          { icon: 'mind',   label: 'Mind Maps' },
-          { icon: 'globe',  label: 'Browser Automation' },
-          { icon: 'voice',  label: 'Voice Generation' },
-          { icon: 'search', label: 'Data Research' },
-          { icon: 'bot',    label: 'Personal Assistant' }
+          { icon: 'doc',        label: 'Simple Docs' },
+          { icon: 'grid',       label: 'Simple Excel' },
+          { icon: 'slides',     label: 'Beautiful HTML Slides' },
+          { icon: 'mind',       label: 'Mind Maps' },
+          { icon: 'globe',      label: 'Browser Automation' },
+          { icon: 'voice',      label: 'Voice Generation' },
+          { icon: 'search',     label: 'Data Research' },
+          { icon: 'transcript', label: 'Voice Transcription' },
+          { icon: 'image',      label: 'Image Generation' }
         ],
         winBtn: 'Download for Windows',
         linuxBtn: 'Download for Linux',
         macBtn: 'Download for macOS',
-        version: 'v1.0.0',
+        version: VERSION,
         unsupported: 'Currently unsupported OS',
         macComingSoon: 'macOS version coming soon',
         mobileUnsupported: 'Please download on a computer',
@@ -408,9 +419,6 @@
         toastError: 'Download failed, please try again'
       }
     };
-
-    /* ────── DOWNLOAD BASE URL (GitHub Release assets) ────── */
-    var DOWNLOAD_BASE = 'https://github.com/johnnycls/vibe-office-official-site/releases/download/v1.0.0/';
 
     /* ────── DETECT LANGUAGE ────── */
     var langCode = (navigator.language || '').toLowerCase();
@@ -488,14 +496,14 @@
     if (os === 'windows') {
       var link = buildDownloadLink(
         lang.winBtn,
-        DOWNLOAD_BASE + 'vibe-office-1.0.0-Setup.exe',
+        DOWNLOAD_BASE + DOWNLOAD_FILES.windows,
         ICONS.download
       );
       downloadArea.appendChild(link);
     } else if (os === 'linux') {
       var link = buildDownloadLink(
         lang.linuxBtn,
-        DOWNLOAD_BASE + 'vibe-office-1.0.0-x86_64.AppImage',
+        DOWNLOAD_BASE + DOWNLOAD_FILES.linux,
         ICONS.download
       );
       downloadArea.appendChild(link);

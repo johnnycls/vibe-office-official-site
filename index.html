@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vibe Office — 你的 AI 個人秘書</title>
+<title data-i18n="page.title">Vibe Office — 你的 AI 個人秘書</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -205,6 +205,9 @@ body {
   animation: none;
 }
 .btn-primary:active { transform: scale(0.97); }
+.btn-primary.disabled-btn {
+  opacity: 0.6; cursor: default; animation: none;
+}
 @keyframes btnGlow {
   0%, 100% { box-shadow: 0 4px 24px rgba(129,140,248,0.35), 0 0 0 0 rgba(129,140,248,0.5); }
   50% { box-shadow: 0 4px 28px rgba(129,140,248,0.4), 0 0 0 8px rgba(129,140,248,0); }
@@ -742,15 +745,6 @@ body {
 <!-- Slide Navigation Dots -->
 <nav class="slide-nav" aria-label="Slide navigation">
   <span class="nav-line"></span>
-  <button class="nav-dot active" data-index="0" aria-label="Slide 1"></button>
-  <button class="nav-dot" data-index="1" aria-label="Slide 2"></button>
-  <button class="nav-dot" data-index="2" aria-label="Slide 3"></button>
-  <button class="nav-dot" data-index="3" aria-label="Slide 4"></button>
-  <button class="nav-dot" data-index="4" aria-label="Slide 5"></button>
-  <button class="nav-dot" data-index="5" aria-label="Slide 6"></button>
-  <button class="nav-dot" data-index="6" aria-label="Slide 7"></button>
-  <button class="nav-dot" data-index="7" aria-label="Slide 8"></button>
-  <button class="nav-dot" data-index="8" aria-label="Slide 9"></button>
 </nav>
 
 <!-- Slides Wrapper -->
@@ -977,7 +971,7 @@ body {
       <p class="fade-up d3" data-i18n="slide3.subtitle" style="font-size:1.05rem;color:var(--text-muted);margin-top:8px;">複製貼回 Vibe Office，即刻啟用</p>
       <div class="api-flow fade-up d4">
         <div class="api-card glass-card">
-          <div class="api-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M15.5 7.5L19 4m-3.5 3.5L10 13m5.5-5.5l3.5-3.5m-6.5 9a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78z"/><path d="M21 2l-2 2"/></svg></div>
+          <div class="api-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="8" cy="15" r="4"/><path d="M10.85 12.15L19 4"/><path d="M18 5l2-2"/></svg></div>
           <div data-i18n="slide3.card1.title" style="font-weight:700;font-size:1.05rem;margin-bottom:4px;">OpenRouter 註冊</div>
           <div data-i18n="slide3.card1.desc" style="font-size:0.85rem;color:var(--text-muted);">前往 openrouter.ai 註冊帳號並獲取 API Key</div>
         </div>
@@ -1000,13 +994,23 @@ body {
 <!-- Download Toast -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script>var VIBE_OFFICE_VERSION = '1.0.4';</script>
+<script>var VIBE_OFFICE_VERSION = '1.0.5';</script>
 <script>
 (function() {
   const wrapper = document.getElementById('slidesWrapper');
   const slides = document.querySelectorAll('.slide');
-  const navDots = document.querySelectorAll('.nav-dot');
   const totalSlides = slides.length;
+
+  // Generate nav dots
+  const nav = document.querySelector('.slide-nav');
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('data-index', i);
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+    nav.appendChild(dot);
+  }
+  const navDots = document.querySelectorAll('.nav-dot');
   let currentSlide = 0;
   let isTransitioning = false;
   let touchStartY = 0;
@@ -1280,7 +1284,10 @@ body {
       download: '\u2B07 立即下載',
       downloadVibe: '\u2B07 立即下載 Vibe Office',
       toastStarting: '正在下載 …',
-      toastError: '下載失敗，請重新嘗試'
+      toastError: '下載失敗，請重新嘗試',
+      'os.macComing': 'macOS 版本即將推出',
+      'os.unsupported': '目前不支援的操作系統',
+      'page.title': 'Vibe Office — 你的 AI 個人秘書',
     },
     en: {
       'hero.subtitle': 'Your AI personal assistant, one click to efficient work',
@@ -1363,7 +1370,10 @@ body {
       download: '\u2B07 Download',
       downloadVibe: '\u2B07 Download Vibe Office',
       toastStarting: 'Download starting …',
-      toastError: 'Download failed, please try again'
+      toastError: 'Download failed, please try again',
+      'os.macComing': 'macOS version coming soon',
+      'os.unsupported': 'Currently unsupported OS',
+      'page.title': 'Vibe Office — Your AI Secretary',
     }
   };
 
@@ -1378,7 +1388,9 @@ body {
       var key = el.getAttribute('data-i18n');
       var text = lang[key];
       if (text) {
-        if (text.indexOf('<br>') !== -1) {
+        if (key === 'page.title') {
+          document.title = text;
+        } else if (text.indexOf('<br>') !== -1) {
           el.innerHTML = text;
         } else {
           el.textContent = text;
@@ -1437,29 +1449,21 @@ body {
 
   applyTranslations();
 
-  var btn1 = document.getElementById('downloadBtn1');
-  if (btn1) {
+  function renderDownloadButton(containerId, labelKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
     if (os === 'windows' || os === 'linux') {
-      var link1 = buildDownloadLink(lang.download);
-      if (link1) btn1.appendChild(link1);
+      var link = buildDownloadLink(lang[labelKey]);
+      if (link) container.appendChild(link);
     } else if (os === 'mac') {
-      btn1.innerHTML = '<span class="btn-primary" style="opacity:0.6;cursor:default;animation:none;">macOS version coming soon</span>';
+      container.innerHTML = '<span class="btn-primary disabled-btn">' + lang['os.macComing'] + '</span>';
     } else {
-      btn1.innerHTML = '<span class="btn-primary" style="opacity:0.6;cursor:default;animation:none;">Currently unsupported OS</span>';
+      container.innerHTML = '<span class="btn-primary disabled-btn">' + lang['os.unsupported'] + '</span>';
     }
   }
 
-  var btn2 = document.getElementById('downloadBtn2');
-  if (btn2) {
-    if (os === 'windows' || os === 'linux') {
-      var link2 = buildDownloadLink(lang.downloadVibe);
-      if (link2) btn2.appendChild(link2);
-    } else if (os === 'mac') {
-      btn2.innerHTML = '<span class="btn-primary" style="opacity:0.6;cursor:default;animation:none;">macOS version coming soon</span>';
-    } else {
-      btn2.innerHTML = '<span class="btn-primary" style="opacity:0.6;cursor:default;animation:none;">Currently unsupported OS</span>';
-    }
-  }
+  renderDownloadButton('downloadBtn1', 'download');
+  renderDownloadButton('downloadBtn2', 'downloadVibe');
 
   document.documentElement.lang = isZh ? 'zh-HK' : 'en';
 })();
